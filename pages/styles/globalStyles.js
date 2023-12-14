@@ -1,15 +1,17 @@
 import { css } from '@emotion/react';
 
 const globalStyles = (theme) => {
-  console.log(theme);
   return css`
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
     * {
       scroll-behavior: smooth;
-      color: ${theme == 'light' ? '#222' : '#ccc'} !important;
-      // font-family: 'Lato', sans-serif;
+      color: ${theme == 'light' ? '#222' : '#ccc'};
       font-family: 'JetBrains Mono', monospace;
+    }
+
+    .force-font * {
+      color: ${theme == 'light' ? '#222' : '#ccc'} !important;
     }
 
     body {
@@ -36,12 +38,26 @@ const globalStyles = (theme) => {
       border: 2px solid ${theme == 'light' ? '#101010' : 'white'};
     }
 
+    @media only screen and (max-width: 992px) {
+      .header-links {
+        margin-bottom: 8px;
+      }
+    }
     @media only screen and (min-width: 992px) {
+      .header-links {
+        margin-right: 20px;
+      }
+      .navbar-nav {
+        margin-left: 35px;
+      }
       #content {
         padding: 5rem 8rem 0 8rem;
       }
+      .animated-link .text {
+        padding: 0 !important;
+      }
     }
-    @media only screen and (min-width: 1200) {
+    @media only screen and (min-width: 1200px) {
       #content {
         padding: 5rem 12rem 0 12rem;
       }
@@ -74,6 +90,7 @@ const globalStyles = (theme) => {
     }
 
     .animated-link .text {
+      padding: 10px 0 10px 0;
       position: relative;
       display: inline-block;
       overflow: hidden;
@@ -104,13 +121,14 @@ const globalStyles = (theme) => {
       bottom: 0px;
       left: 0;
       width: 100%;
-      height: 2px; /* Adjust the thickness of the underline */
+      height: 2px;
       background-color: ${theme === 'dark' ? 'white' : 'black'};
     }
 
     /* custom underlined text (animated) --- end */
     /* social badges --- start*/
     .social-badge {
+      aspect-ratio: 1/1;
       background-color: ${theme === 'dark' ? 'white' : ''};
     }
   `;

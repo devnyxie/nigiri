@@ -1,9 +1,11 @@
 import Image from 'next/image';
 import React from 'react';
 
+import BuyMeCoffeeButton from '../components/buyMeCoffee/BuyMeCoffeeButton';
+
 function about_me() {
   return (
-    <div className="w-100">
+    <div className="w-100 fade-in">
       <div className="w-100 d-flex justify-content-center">
         <img src="pfp.jpg" width={250} height={250} className="pfp mb-4" />
       </div>
