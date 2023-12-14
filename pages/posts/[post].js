@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import { getPostByFileName, getAllPosts } from '../../lib/api.js';
+import markdownToHtml from '../../lib/markdownToHtml.js';
+import Head from 'next/head.js';
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter();
@@ -8,7 +10,22 @@ export default function Post({ post, morePosts, preview }) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
-  return <div>Single post</div>;
+  return (
+    <>
+      {router.isFallback ? (
+        <PostTitle>Loading…</PostTitle>
+      ) : (
+        <>
+          <article className="mb-32">
+            <Head>
+              <title>{title}</title>
+            </Head>
+            <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
+          </article>
+        </>
+      )}
+    </>
+  );
 }
 
 export async function getStaticProps({ params }) {
@@ -19,12 +36,12 @@ export async function getStaticProps({ params }) {
     'content',
     'coverImage',
   ]);
-  //   const content = await markdownToHtml(post.content || '');
+  const content = await markdownToHtml(post.content || '');
   return {
     props: {
       post: {
         ...post,
-        // content,
+        content,
       },
     },
   };

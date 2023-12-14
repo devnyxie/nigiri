@@ -1,15 +1,12 @@
 /*profile picture*/
+
 a {
   text-decoration: none !important;
 }
-/* a:hover {  
-  text-decoration: underline !important;
-  filter: brightness(1.5);
-  transition: 0.2s;
-} */
 
-* {
-  transition: width 0.1s, height 0.1s;
+body {
+  transition: width 0.2s, height 0.2s;
+  transition: 0.2s;
 }
 
 .moon-button-switch {
@@ -21,31 +18,80 @@ a {
 
 @keyframes rotateAnimationOff {
   0% {
-    transform: rotate(0deg);
+    /* transform : rotate(0deg); */
+    transform: translate(0, 0);
   }
   100% {
-    transform: rotate(180deg);
+    /* transform: rotate(180deg); */
+    transform: translate(0, -60px);
   }
 }
 
 @keyframes rotateAnimationOn {
   0% {
-    transform: rotate(180deg);
+    /* transform: rotate(180deg); */
+    transform: translate(0, 60px);
   }
   100% {
-    transform: rotate(360deg);
+    /* transform: rotate(360deg); */
+    transform: translate(0, 0);
   }
 }
 
 .theme-switcher-circle-off {
   position: absolute;
-  top: 20px;
+  transform: translate(0, 0);
+  /* top: 20px; */
   /* transform: translate(100%, 100%); */
   animation: rotateAnimationOff 0.2s ease; /* Use the forwards value to keep the final state after the animation ends */
 }
 .theme-switcher-circle-on {
   position: absolute;
-  top: 20px;
+  transform: translate(0, 0);
+  /* top: 20px; */
   /* transform: translate(100%, 100%); */
   animation: rotateAnimationOn 0.2s ease; /* Use the forwards value to keep the final state after the animation ends */
+}
+.custom-pagination {
+  overflow: hidden;
+  border-radius: 3px;
+  padding: 0;
+
+  width: max-content;
+  display: flex;
+  list-style-type: none !important;
+}
+.custom-pagination * {
+  color: black !important;
+}
+
+.custom-page-item {
+  background-color: #fbcc84;
+  padding: 0 8px 0 8px;
+  border: 1px solid rgb(129, 129, 129);
+}
+.custom-page-item:hover {
+  filter: brightness(0.8);
+}
+
+.no-child-borders * {
+  border: none;
+}
+.black-child-borders button {
+  border: 1px solid rgb(80, 80, 80);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Apply the animation to your div */
+.fade-in {
+  opacity: 0; /* Set initial opacity to 0 */
+  animation: fadeIn 0.2s ease-in-out forwards; /* Apply the animation */
 }
