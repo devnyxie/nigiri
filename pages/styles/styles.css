@@ -1,0 +1,51 @@
+/*profile picture*/
+a {
+  text-decoration: none !important;
+}
+/* a:hover {  
+  text-decoration: underline !important;
+  filter: brightness(1.5);
+  transition: 0.2s;
+} */
+
+* {
+  transition: width 0.1s, height 0.1s;
+}
+
+.moon-button-switch {
+  background-color: rgb(32, 32, 32);
+}
+.sun-button-switch {
+  background-color: #fbcc84;
+}
+
+@keyframes rotateAnimationOff {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rotateAnimationOn {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.theme-switcher-circle-off {
+  position: absolute;
+  top: 20px;
+  /* transform: translate(100%, 100%); */
+  animation: rotateAnimationOff 0.2s ease; /* Use the forwards value to keep the final state after the animation ends */
+}
+.theme-switcher-circle-on {
+  position: absolute;
+  top: 20px;
+  /* transform: translate(100%, 100%); */
+  animation: rotateAnimationOn 0.2s ease; /* Use the forwards value to keep the final state after the animation ends */
+}
