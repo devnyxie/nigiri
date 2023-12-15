@@ -5,6 +5,8 @@ import './styles/styles.css'; // Import your global styles here
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { getCookie } from '../utils/utils';
+import { Global } from '@emotion/react';
+import globalStyles from '../public/globalStyles.styles.js';
 
 function App({ Component, pageProps }) {
   const [theme, setTheme] = useState('dark');
@@ -17,6 +19,7 @@ function App({ Component, pageProps }) {
   }, []);
   return (
     <>
+      <Global styles={() => globalStyles(theme ? theme : 'dark')} />
       <Head>
         <title>devnyxie</title>
         <link
