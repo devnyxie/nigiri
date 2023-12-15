@@ -2,25 +2,34 @@ import React, { useState } from 'react';
 import AnimatedLink from '../AnimatedLink';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
-import styled from '@emotion/styled';
-import { lime } from '@mui/material/colors';
+import { formatDateString } from '../../utils/utils';
+
 function Items({ currentItems }) {
-  console.log(currentItems);
   return (
     <>
-      {currentItems.map((post) => (
-        <div key={post.slug}>
-          <AnimatedLink
-            as={`/posts/${post.slug}`}
-            href="/posts/[post]"
-            className="pb-1"
-          >
-            <div className="fw-bold">
-              {post.slug} - {post.title}
+      {currentItems.map((post, index) => (
+        <div key={post.slug} className="pb-1 pt-1">
+          <div className="w-100 d-flex justify-content-between">
+            <AnimatedLink as={`/posts/${post.slug}`} href="/posts/[post]">
+              <div className="fw-bold flex-fill text-break">{post.title}</div>
+            </AnimatedLink>
+            <div
+              className="small"
+              style={{
+                width: 'max-content',
+              }}
+            >
+              {formatDateString(post.date)}
             </div>
-          </AnimatedLink>
+          </div>
 
-          <div className="ps-3 opacity-50">{post.excerpt}</div>
+          {index !== currentItems.length - 1 ? (
+            <>
+              <hr className="m-0 mt-1 mb-1" />
+            </>
+          ) : (
+            <></>
+          )}
         </div>
       ))}
     </>

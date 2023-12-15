@@ -23,3 +23,10 @@ export function getCookie(name) {
   }
   return null;
 }
+
+export function formatDateString(inputDateString) {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const inputDate = new Date(inputDateString);
+  const formattedDate = inputDate.toLocaleDateString('en-US', options);
+  return formattedDate;
+}

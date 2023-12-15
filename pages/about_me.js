@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
 
-import BuyMeCoffeeButton from '../components/buyMeCoffee/BuyMeCoffeeButton';
-
 function about_me() {
   return (
     <div className="w-100 fade-in">
@@ -37,6 +35,25 @@ function about_me() {
           operations and uninterrupted service delivery.
         </p>
       </div>
+      {/* <div className="pb-2">
+        <h4 className="underlined_text">
+          <div className="text">Other</div>
+        </h4>
+        <div className="pt-2">
+          <a href="https://myanimelist.net/profile/devnyxie" target="_blank">
+            <img
+              className="rounded-2"
+              src="/platforms/myanimelist.svg"
+              style={{
+                width: '50px',
+                height: '50px',
+                color: 'white',
+                backgroundColor: 'blue',
+              }}
+            />
+          </a>
+        </div>
+      </div> */}
     </div>
   );
 }

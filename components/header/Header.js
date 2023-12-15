@@ -24,7 +24,7 @@ function Header({ theme, setTheme }) {
       case 'index':
         return 'Blog';
       case 'about_me':
-        return 'About Me';
+        return 'About';
       default:
         return '';
     }
@@ -78,7 +78,7 @@ function Header({ theme, setTheme }) {
             </div>
             <div className="d-flex" style={{ width: 'max-content' }}>
               <div>
-                <BuyMeCoffeeButton size={'small'} />
+                <BuyMeCoffeeButton />
               </div>
               <div className="ps-1">
                 <ThemeSwitch theme={theme} setTheme={setTheme} />
