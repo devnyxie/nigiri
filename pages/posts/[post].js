@@ -11,7 +11,7 @@ export default function Post({ post, morePosts, preview }) {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <>
+    <div className="fade-in">
       {router.isFallback ? (
         <PostTitle>Loading…</PostTitle>
       ) : (
@@ -24,7 +24,7 @@ export default function Post({ post, morePosts, preview }) {
           </article>
         </>
       )}
-    </>
+    </div>
   );
 }
 

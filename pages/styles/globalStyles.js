@@ -2,8 +2,6 @@ import { css } from '@emotion/react';
 
 const globalStyles = (theme) => {
   return css`
-    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
-
     * {
       scroll-behavior: smooth;
       color: ${theme == 'light' ? '#222' : '#ccc'};
@@ -31,7 +29,7 @@ const globalStyles = (theme) => {
     }
 
     .pfp {
-      padding: 1px;
+      // padding: 1px;
       height: 100%;
       aspect-ratio: 1/1;
       border-radius: 100%;
@@ -51,7 +49,7 @@ const globalStyles = (theme) => {
         margin-left: 35px;
       }
       #content {
-        padding: 5rem 8rem 0 8rem;
+        padding: 3rem 5rem 0 5rem;
       }
       .animated-link .text {
         padding: 0 !important;
@@ -59,7 +57,7 @@ const globalStyles = (theme) => {
     }
     @media only screen and (min-width: 1200px) {
       #content {
-        padding: 5rem 12rem 0 12rem;
+        padding: 4rem 12rem 0 12rem;
       }
     }
 
