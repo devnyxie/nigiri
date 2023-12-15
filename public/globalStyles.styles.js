@@ -6,6 +6,7 @@ const globalStyles = (theme) => {
       scroll-behavior: smooth;
       color: ${theme == 'light' ? '#222' : '#ccc'};
       font-family: 'JetBrains Mono', monospace;
+      // font-family: 'Source Code Pro', monospace;
     }
 
     .force-font * {
@@ -29,7 +30,6 @@ const globalStyles = (theme) => {
     }
 
     .pfp {
-      // padding: 1px;
       height: 100%;
       aspect-ratio: 1/1;
       border-radius: 100%;

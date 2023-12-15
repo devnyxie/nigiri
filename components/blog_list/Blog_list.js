@@ -67,7 +67,6 @@ function PaginatedItems({ itemsPerPage, posts, theme }) {
               onChange={handlePageChange}
               color="primary"
               variant="outlined"
-              className="no-child-borders"
             />
           </>
         ) : (

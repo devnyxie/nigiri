@@ -34,8 +34,8 @@ function Header({ theme, setTheme }) {
   }, [router]);
   return (
     <div className="p-2 w-100 rounded-1 d-flex align-items-center">
-      <nav class="w-100 navbar navbar-expand-lg ">
-        <div class="container-fluid d-flex justify-content-between">
+      <nav className="w-100 navbar navbar-expand-lg ">
+        <div className="container-fluid d-flex justify-content-between">
           <Link href={'/'} className="d-flex align-items-center">
             <Image src={`/sushi.svg`} alt="Sushi Icon" width={35} height={35} />
             <div className="m-0 p-0 ms-2 fw-bold" style={{ fontSize: '30px' }}>
@@ -44,7 +44,7 @@ function Header({ theme, setTheme }) {
           </Link>
 
           <div
-            class="navbar-toggler border-0 p-0"
+            className="navbar-toggler border-0 p-0"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
             aria-label="Toggle navigation"
@@ -54,7 +54,10 @@ function Header({ theme, setTheme }) {
             </Button>
           </div>
 
-          <div class=" collapse navbar-collapse" id="navbarSupportedContent">
+          <div
+            className=" collapse navbar-collapse"
+            id="navbarSupportedContent"
+          >
             <div className="navbar-nav me-auto">
               {[
                 { as: 'index', href: '/' },
@@ -62,6 +65,7 @@ function Header({ theme, setTheme }) {
               ].map((tab) => {
                 return (
                   <AnimatedLink
+                    key={tab.as}
                     href={tab.href}
                     // className={`fw-bold ms-2 me-2 ${compareRoutes(tab.href)}`}
                     className={`fw-bold header-links`}
