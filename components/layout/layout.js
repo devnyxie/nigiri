@@ -1,6 +1,5 @@
 import { Global, ThemeProvider } from '@emotion/react';
 import React from 'react';
-import globalStyles from '../../pages/styles/globalStyles';
 
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
@@ -9,7 +8,6 @@ import create_mui_theme from '../mui_theme/theme';
 function Layout({ children, theme, setTheme }) {
   return (
     <>
-      <Global styles={() => globalStyles(theme)} />
       <ThemeProvider theme={create_mui_theme({ theme: theme })}>
         <main className="">
           <div
