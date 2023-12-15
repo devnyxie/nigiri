@@ -16,7 +16,7 @@ function Profile() {
         width={200}
       />
       <div className="">
-        <div className="fw-bold" style={{ fontSize: '35px' }}>
+        <div className="fw-bold " style={{ fontSize: '35px' }}>
           Tim Afanasiev
         </div>
         <div>Digital Craftsman (Developer / Designer)</div>
