@@ -1,5 +1,7 @@
 # Next.js Blog Template Documentation
 
+📸 [Screenshots](https://imgur.com/a/hpx1zx2)
+
 ## Introduction
 
 The Next.js Blog template allows you to create a personalized blog with ease. The configuration of the blog is managed through a YAML file named `configuration.yaml` located in the main directory. This documentation provides details on the available configuration options and their usage.
