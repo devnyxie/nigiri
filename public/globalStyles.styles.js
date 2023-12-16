@@ -1,12 +1,11 @@
 import { css } from '@emotion/react';
 
-const globalStyles = (theme) => {
+const globalStyles = (theme, config) => {
   return css`
     * {
       scroll-behavior: smooth;
       color: ${theme == 'light' ? '#222' : '#ccc'};
       font-family: 'JetBrains Mono', monospace;
-      // font-family: 'Source Code Pro', monospace;
     }
 
     .force-font * {
@@ -30,15 +29,19 @@ const globalStyles = (theme) => {
     }
 
     .pfp {
+      overflow: hidden;
       height: 100%;
       aspect-ratio: 1/1;
       border-radius: 100%;
-      border: 2px solid ${theme == 'light' ? '#101010' : 'white'};
+      border: ${config.profile_picture_border
+        ? `2px solid ${theme == 'light' ? '#101010' : 'white'}`
+        : 'none'};
     }
 
     @media only screen and (max-width: 992px) {
       .header-links {
-        margin-bottom: 8px;
+        margin-top: 10px;
+        margin-bottom: 10px;
       }
     }
     @media only screen and (min-width: 992px) {
@@ -88,9 +91,8 @@ const globalStyles = (theme) => {
     }
 
     .animated-link .text {
-      padding: 10px 0 10px 0;
+      // padding: 10px 0 10px 0;
       position: relative;
-      display: inline-block;
       overflow: hidden;
       transition: 0.25s;
     }
@@ -128,6 +130,10 @@ const globalStyles = (theme) => {
     .social-badge {
       aspect-ratio: 1/1;
       background-color: ${theme === 'dark' ? 'white' : ''};
+    }
+    /*pagination*/
+    .MuiPagination-root .Mui-selected {
+      color: ${theme == 'light' ? '' : 'black'} !important;
     }
   `;
 };

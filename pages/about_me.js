@@ -1,59 +1,54 @@
-import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { ProfilePicture, capitalizeText, findKeys } from '../utils/utils';
+import markdownToHtml from '../lib/markdownToHtml';
 
-function about_me() {
+function about_me({ config }) {
+  const [paragraphs, setParagraphs] = useState([]);
+  useEffect(() => {
+    let new_paragraphs = [];
+    for (let key in config) {
+      if (config.hasOwnProperty(key)) {
+        const value = config[key];
+        if (key.includes('_paragraph') && value.trim() !== '') {
+          const cleanedKey = key.replace('_paragraph', '');
+          new_paragraphs.push({
+            paragraph_title: cleanedKey,
+            paragraph_text: value,
+          });
+        }
+      }
+    }
+    setParagraphs(new_paragraphs);
+  }, []);
+
   return (
     <div className="w-100 fade-in">
       <div className="w-100 d-flex justify-content-center">
-        <img src="pfp.jpg" width={250} height={250} className="pfp mb-4" />
+        <ProfilePicture config={config} size={250} className="pfp mb-4" />
       </div>
-      <div id="about_me" className="mb-4">
-        <h4 className="underlined_text">
-          <div className="text">About Me</div>
-        </h4>
-        <p className="pt-2">
-          {'\u00A0\u00A0'} I'm Tim, a multilingual individual fluent in Russian,
-          Greek, English, and Polish. Although currently residing in Poland,
-          I've spent the majority of my life in Greece. As a digital craftsman,
-          both my work and hobby revolve around creating and continuous
-          learning. Finding solace in this lifestyle, I have a penchant for
-          romanticizing programming.
-        </p>
-      </div>
-      <div id="work" className="mb-4 pt-2">
-        <h4 className="underlined_text">
-          <div className="text">Work</div>
-        </h4>
-        <p className="pt-2">
-          {'\u00A0\u00A0'}I am a Full Stack Developer at DemandSphere, where my
-          role involves devops monitoring, design, web scraping and more.
-          Proficient in both frontend and backend, I design user-friendly
-          interfaces, implement features, optimize platform performance, and
-          integrate external services. I conduct in-depth analyses using
-          monitoring tools like Elastic, Grafana, Sentry, and RabbitMQ. I
-          address production incidents across time zones, ensuring seamless
-          operations and uninterrupted service delivery.
-        </p>
-      </div>
-      {/* <div className="pb-2">
-        <h4 className="underlined_text">
-          <div className="text">Other</div>
-        </h4>
-        <div className="pt-2">
-          <a href="https://myanimelist.net/profile/devnyxie" target="_blank">
-            <img
-              className="rounded-2"
-              src="/platforms/myanimelist.svg"
-              style={{
-                width: '50px',
-                height: '50px',
-                color: 'white',
-                backgroundColor: 'blue',
-              }}
-            />
-          </a>
-        </div>
-      </div> */}
+      {paragraphs.map((paragraph, index) => {
+        let markdown = markdownToHtml(paragraph.paragraph_text);
+
+        if (markdown) {
+          return (
+            <div id={paragraph.paragraph_title} className="mb-4">
+              <h4 className="underlined_text">
+                <div className="text">
+                  {capitalizeText(paragraph.paragraph_title)}
+                </div>
+              </h4>
+              <div className="d-flex pt-2">
+                <div
+                  className="ps-2"
+                  dangerouslySetInnerHTML={{
+                    __html: markdown,
+                  }}
+                ></div>
+              </div>
+            </div>
+          );
+        }
+      })}
     </div>
   );
 }

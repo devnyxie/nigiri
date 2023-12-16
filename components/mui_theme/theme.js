@@ -5,10 +5,10 @@ function create_mui_theme({ theme }) {
     palette: {
       primary: {
         main: '#FBCC84',
-        // text: '#FBCC84',
+        // text: '#000000',
         // light: '#FBCC84',
         // dark: '#FBCC84',
-        // contrastText: '#FBCC84',
+        // contrastText: '#000000',
       },
       secondary: {
         main: '#FBCC84',
@@ -16,6 +16,7 @@ function create_mui_theme({ theme }) {
         // light: '#FBCC84',
         // dark: '#FBCC84',
         // contrastText: '#FBCC84',
+        // contrastText: '#000000',
       },
     },
     // palette: {
