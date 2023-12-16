@@ -8,17 +8,10 @@ import { IoIosMenu } from 'react-icons/io';
 import ThemeSwitch from '../theme_switch/ThemeSwitch';
 import BuyMeCoffeeButton from '../buyMeCoffee/BuyMeCoffeeButton';
 import { Button } from '@mui/material';
-function Header({ theme, setTheme }) {
+function Header({ theme, setTheme, config }) {
   const router = useRouter();
   const [currentRoute, setCurrentRoute] = useState('/');
-  console.log(currentRoute);
-  function compareRoutes(route) {
-    if (route.toLowerCase() === currentRoute.toLowerCase()) {
-      return 'text-decoration-underline';
-    } else {
-      return '';
-    }
-  }
+
   function returnRouteName(route) {
     switch (route) {
       case 'index':
@@ -29,6 +22,19 @@ function Header({ theme, setTheme }) {
         return '';
     }
   }
+
+  function associatedRoutes(tab) {
+    let associated_routes = [];
+    associated_routes.push(tab.href);
+    switch (tab.as) {
+      case 'index':
+        associated_routes.push('/posts/[post]');
+        break;
+      default:
+        break;
+    }
+    return associated_routes;
+  }
   useEffect(() => {
     setCurrentRoute(router.pathname);
   }, [router]);
@@ -37,9 +43,14 @@ function Header({ theme, setTheme }) {
       <nav className="w-100 navbar navbar-expand-lg ">
         <div className="container-fluid d-flex justify-content-between">
           <Link href={'/'} className="d-flex align-items-center">
-            <Image src={`/sushi.svg`} alt="Sushi Icon" width={35} height={35} />
+            <Image
+              src={`/site_logo/logo.svg`}
+              alt="Sushi Icon"
+              width={35}
+              height={35}
+            />
             <div className="m-0 p-0 ms-2 fw-bold" style={{ fontSize: '30px' }}>
-              Tim
+              {config.site_title}
             </div>
           </Link>
 
@@ -59,31 +70,42 @@ function Header({ theme, setTheme }) {
             id="navbarSupportedContent"
           >
             <div className="navbar-nav me-auto">
-              {[
-                { as: 'index', href: '/' },
-                { as: 'about_me', href: '/about_me' },
-              ].map((tab) => {
-                return (
-                  <AnimatedLink
-                    key={tab.as}
-                    href={tab.href}
-                    // className={`fw-bold ms-2 me-2 ${compareRoutes(tab.href)}`}
-                    className={`fw-bold header-links`}
-                  >
-                    <div
-                      className={`${currentRoute === tab.href ? 'active' : ''}`}
-                    >
-                      {' '}
-                      {returnRouteName(tab.as)}
-                    </div>
-                  </AnimatedLink>
-                );
-              })}
+              {config.disable_about_me_page ? (
+                <></>
+              ) : (
+                [
+                  { as: 'index', href: '/' },
+                  { as: 'about_me', href: '/about_me' },
+                ]
+                  .filter((value) => value !== null && value !== undefined)
+                  .map((tab) => {
+                    return (
+                      <AnimatedLink
+                        key={tab.as}
+                        href={tab.href}
+                        className={`fw-bold header-links`}
+                      >
+                        <div
+                          className={`${
+                            associatedRoutes(tab).includes(currentRoute)
+                              ? 'active'
+                              : ''
+                          }`}
+                        >
+                          {' '}
+                          {returnRouteName(tab.as)}
+                        </div>
+                      </AnimatedLink>
+                    );
+                  })
+              )}
             </div>
             <div className="d-flex" style={{ width: 'max-content' }}>
-              <div>
-                <BuyMeCoffeeButton />
-              </div>
+              {config.buyMeACoffee_username ? (
+                <BuyMeCoffeeButton username={config.buyMeACoffee_username} />
+              ) : (
+                <></>
+              )}
               <div className="ps-1">
                 <ThemeSwitch theme={theme} setTheme={setTheme} />
               </div>

@@ -16,7 +16,7 @@ export default function Post({ post, morePosts, preview }) {
         <PostTitle>Loading…</PostTitle>
       ) : (
         <>
-          <article className="mb-32">
+          <article>
             <Head>
               <title>{title}</title>
             </Head>
@@ -36,7 +36,7 @@ export async function getStaticProps({ params }) {
     'content',
     'coverImage',
   ]);
-  const content = await markdownToHtml(post.content || '');
+  const content = markdownToHtml(post.content || '');
   return {
     props: {
       post: {

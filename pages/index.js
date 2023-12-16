@@ -6,11 +6,11 @@ import Layout from '../components/layout/layout.js';
 import Blog_list from '../components/blog_list/Blog_list.js';
 import Profile from '../components/profile/Profile.js';
 
-export default function Home({ allPosts, theme }) {
+export default function Home({ allPosts, theme, config }) {
   return (
     <div className="fade-in">
-      <Profile />
-      <Blog_list allPosts={allPosts} theme={theme} />
+      <Profile config={config} />
+      <Blog_list allPosts={allPosts} theme={theme} config={config} />
     </div>
   );
 }
