@@ -1,0 +1,50 @@
+site_title: 'Nigiri'
+site_description: ''
+
+name: 'Demo'
+surname: 'Magician'
+professional_identity: 'Proffessional Magician'
+
+about_me_paragraph: |
+
+  In eget imperdiet orci, convallis feugiat diam. Nam nec turpis tincidunt,  [Link](https://www.example.com) diam ac, efficitur velit. In congue velit a nisi finibus, eget pulvinar lectus cursus. Duis risus ligula, eleifend rutrum velit ut, varius varius mauris. Duis sollicitudin diam ut fringilla cursus. Mauris efficitur, tortor ac pharetra aliquet, nunc eros interdum augue, ut  [Link](https://www.example.com) velit velit ac urna.
+  ***Fusce eu arcu facilisis ligula rhoncus imperdiet ac eget turpis. Sed placerat porta orci quis volutpat.***
+
+  - Bullet Point 1
+  - Bullet Point 2
+
+  1. Numbered Item 1
+  2. Numbered Item 2
+
+work_paragraph: |
+
+  *Suspendisse accumsan mauris ac dui dictum, vulputate eleifend ipsum porta. Vestibulum eget tellus ac tortor eleifend convallis sit amet at purus. Duis sed malesuada ipsum. Donec lacinia erat ligula, a congue erat viverra pretium. Suspendisse tincidunt interdum enim at imperdiet. Integer lorem dui, faucibus quis gravida vitae, volutpat sit amet magna. Nam ut odio massa.*
+
+github_username: 'nick'
+github_icon: 'github.svg'
+
+linkedin_username: 'nick'
+linkedin_icon: 'linkedin.svg'
+
+instagram_username: 'nick'
+instagram_icon: 'instagram.svg'
+
+tumblr_username: 'nick'
+tumblr_icon: 'tumblr.svg'
+
+steam_username: 'devnyxie'
+steam_icon: 'steam.svg'
+
+twitter_username: 'nick'
+twitter_icon: 'twitter.svg'
+
+email_address: 'loadDefaults@gmail.com'
+
+buyMeACoffee_username: 'devnyxie'
+
+profile_picture_border: true
+disable_about_me_page: false
+disable_animated_underline: ''
+blog_preview_date_format: ''
+blog_preview_date_separators: '-'
+max_posts_per_page: '8'
