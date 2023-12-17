@@ -1,14 +1,5 @@
 # Nigiri Template 🍣
 
-[Demo](https://nigiri.vercel.app/)
-[Screenshots](https://imgur.com/a/hpx1zx2)
-
-<div align="center">
-  <br/>
-    <img src="https://i.imgur.com/HrYMHGK.png" width="1000"/>
-  <br/>
-</div>
-
 <!-- toc -->
 
 - [Template Documentation](#template-documentation)
@@ -23,8 +14,15 @@
     - [7. Other (UI)](#7-other-ui)
   - [Example Configuration](#example-configuration)
 - [Getting Started Locally](#getting-started-locally)
+- [Resources](#resources)
 
 <!-- tocstop -->
+
+<div align="center">
+  <br/>
+    <img src="https://i.imgur.com/HrYMHGK.png" width="1000"/>
+  <br/>
+</div>
 
 # Template Documentation
 
@@ -143,3 +141,9 @@ Feel free to customize the configuration to suit your preferences and style.
   $ npm i
   $ npm run dev
 ```
+
+# Resources
+
+[Demo](https://nigiri.vercel.app/)
+
+[Screenshots](https://imgur.com/a/hpx1zx2)
