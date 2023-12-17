@@ -1,10 +1,10 @@
-# Next.js Blog Template Documentation
-
 📸 [Screenshots](https://imgur.com/a/hpx1zx2)
+
+# Nigiri Next.js Blog Template Documentation
 
 ## Introduction
 
-The Next.js Blog template allows you to create a personalized blog with ease. The configuration of the blog is managed through a YAML file named `configuration.yaml` located in the main directory. This documentation provides details on the available configuration options and their usage.
+The Nigiri template allows you to create a personalized blog with ease. The configuration of the blog is managed through a YAML file named `configuration.yaml` located in the main directory. This documentation provides details on the available configuration options and their usage.
 
 ## Configuration Options (type, default)
 
@@ -81,10 +81,10 @@ Configure the visual appearance of the blog & more
 
 - `profile_picture_border`: (boolean, true) Light/Dark border for profile picture and avatar.
 - `max_posts_per_page`: (int, 8) Limits posts on the "blog" page.
-- `disable_about_me_page`: (boolean, false) Disable "about" page. Therefore no links will be generated in the header.
-  todo - `disable_animated_underline`: (boolean, false) Disable animated underline and replace it with a static underline.
+- `disable_about_me_page`: (boolean, false) Disables "about" page. Therefore no links will be generated in the header.
+- `disable_animated_underline`: (boolean, false) Disables animated underline and replace it with a static underline on-hover.
 - `blog_preview_date_format`: (string, ISO_8601) Blog list item date format. Options: `ISO_8601` (2023-12-15) and `full_date` (December 15, 2023).
-- `blog_preview_date_separators`: (string, "-") Blog list item date separator. Defaults to "-" (2023-12-15).
+- `blog_preview_date_separators`: (string, "-") Blog list item date separator. Works only for ISO_8601 date format. Defaults to "-" (2023-12-15).
 
 ## Example Configuration
 

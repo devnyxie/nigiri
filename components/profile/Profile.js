@@ -6,7 +6,6 @@ import { ProfilePicture, capitalizeFirstChar } from '../../utils/utils';
 import { Avatar } from '@mui/material';
 
 function socialLink(platform) {
-  console.log(platform);
   let link;
   switch (platform) {
     case 'steam':

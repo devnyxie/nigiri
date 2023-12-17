@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap');
 
 a {
   text-decoration: none !important;
@@ -10,31 +9,20 @@ body {
   transition: 0.2s;
 }
 
-.moon-button-switch {
-  background-color: rgb(32, 32, 32);
-}
-.sun-button-switch {
-  background-color: #fbcc84;
-}
-
 @keyframes rotateAnimationOff {
   0% {
-    /* transform : rotate(0deg); */
     transform: translate(0, 0);
   }
   100% {
-    /* transform: rotate(180deg); */
     transform: translate(0, -60px);
   }
 }
 
 @keyframes rotateAnimationOn {
   0% {
-    /* transform: rotate(180deg); */
     transform: translate(0, 60px);
   }
   100% {
-    /* transform: rotate(360deg); */
     transform: translate(0, 0);
   }
 }
@@ -42,16 +30,12 @@ body {
 .theme-switcher-circle-off {
   position: absolute;
   transform: translate(0, 0);
-  /* top: 20px; */
-  /* transform: translate(100%, 100%); */
-  animation: rotateAnimationOff 0.2s ease; /* Use the forwards value to keep the final state after the animation ends */
+  animation: rotateAnimationOff 0.2s ease;
 }
 .theme-switcher-circle-on {
   position: absolute;
   transform: translate(0, 0);
-  /* top: 20px; */
-  /* transform: translate(100%, 100%); */
-  animation: rotateAnimationOn 0.2s ease; /* Use the forwards value to keep the final state after the animation ends */
+  animation: rotateAnimationOn 0.2s ease;
 }
 
 @keyframes fadeIn {
@@ -63,8 +47,20 @@ body {
   }
 }
 
-/* Apply the animation to your div */
 .fade-in {
-  opacity: 0; /* Set initial opacity to 0 */
-  animation: fadeIn 0.2s ease-in-out forwards; /* Apply the animation */
+  opacity: 0;
+  animation: fadeIn 0.2s ease-in-out forwards;
+}
+
+.coffee-btn {
+  height: 40px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #ff813f;
+  width: 40px;
+  transition: 0.2s;
+}
+.coffee-btn:hover {
+  background-color: #db692c;
+  transition: 0.2s;
 }

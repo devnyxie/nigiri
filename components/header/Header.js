@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import JP from '../../public/japan.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -7,7 +6,7 @@ import AnimatedLink from '../AnimatedLink';
 import { IoIosMenu } from 'react-icons/io';
 import ThemeSwitch from '../theme_switch/ThemeSwitch';
 import BuyMeCoffeeButton from '../buyMeCoffee/BuyMeCoffeeButton';
-import { Button } from '@mui/material';
+import { Button, IconButton } from '@mui/material';
 function Header({ theme, setTheme, config }) {
   const router = useRouter();
   const [currentRoute, setCurrentRoute] = useState('/');
@@ -55,14 +54,14 @@ function Header({ theme, setTheme, config }) {
           </Link>
 
           <div
-            className="navbar-toggler border-0 p-0"
+            className="navbar-toggler border-0 p-0 animated-link"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
             aria-label="Toggle navigation"
           >
-            <Button size="small" variant="outlined">
+            <IconButton size="small" variant="outlined">
               <IoIosMenu size={35} />
-            </Button>
+            </IconButton>
           </div>
 
           <div

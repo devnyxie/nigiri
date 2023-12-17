@@ -1,16 +1,13 @@
 import Layout from '../components/layout/layout';
 import 'bootstrap/dist/css/bootstrap.css';
-import './styles/styles.css'; // Import your global styles here
+import './styles/styles.css';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { getCookie, loadDefaults } from '../utils/utils';
 import { Global } from '@emotion/react';
 import globalStyles from '../public/globalStyles.styles.js';
 import { StyledEngineProvider } from '@mui/material/styles';
-//config:
-// import config_json from '../configuration.json';
-//
-import config_yaml from '../configuration.yaml';
+import config from '../configuration.yaml';
 
 function App({ Component, pageProps, config_yml }) {
   const [theme, setTheme] = useState('dark');
@@ -20,14 +17,8 @@ function App({ Component, pageProps, config_yml }) {
     if (cookie_theme) {
       setTheme(cookie_theme);
     }
-    console.log(config_yaml);
   }, []);
-  // let config = parseYAML('configuration.yaml');
-  // console.log(config_yml);
-  // let config = {};
-  // let config = config_yml;
-  // config = loadDefaults(config_yml);
-  const config = config_yaml;
+
   return (
     <>
       <StyledEngineProvider injectFirst>
@@ -68,13 +59,4 @@ function App({ Component, pageProps, config_yml }) {
     </>
   );
 }
-export const getStaticProps = async () => {
-  let config_yml = parseYAML();
-  console.log(config_yml);
-
-  return {
-    props: { config_yml: config_yml },
-  };
-};
-
 export default App;

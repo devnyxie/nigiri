@@ -40,9 +40,6 @@ export function formatDateString(inputDateString, format, customSeparator) {
       day: '2-digit',
     };
     const inputDate = new Date(inputDateString);
-    // date = inputDate
-    //   .toLocaleDateString('en-US', options)
-    //   .replace(/(\d+)\/(\d+)\/(\d+)/, '$3/$1/$2');
     date = inputDate
       .toLocaleDateString('en-US', options)
       .replace(
@@ -101,10 +98,18 @@ export function loadDefaults(config) {
     profile_picture_border: true,
     disable_about_me_page: false,
     disable_animated_underline: false,
+    disable_underline: false,
     blog_preview_date_format: 'ISO_8601',
+    blog_preview_date_separators: '-',
     max_posts_per_page: 8,
+    // social_icons
+    github_icon: 'github.svg',
+    linkedin_icon: 'linkedin.svg',
+    instagram_icon: 'instagram.svg',
+    tumblr_icon: 'tumblr.svg',
+    steam_icon: 'steam.svg',
+    twitter_icon: 'twitter.svg',
   };
-
   // Merge the defaults with the initial config from props
   const mergedConfig = { ...defaults, ...config };
 

@@ -7,10 +7,8 @@ import { setCookie } from '../../utils/utils';
 function ThemeSwitch({ theme, setTheme }) {
   const moon = <Image src="/theme_switch/moon.svg" width={25} height={25} />;
   const sun = <Image src="/theme_switch/sun.svg" width={25} height={25} />;
-  //
   const [circleClass, setCircleClass] = useState('');
   let switching = false;
-  //
   function switchTheme() {
     try {
       if (!switching) {
@@ -33,9 +31,7 @@ function ThemeSwitch({ theme, setTheme }) {
   return (
     <MuiTooltip text="Toggle theme">
       <div
-        className={`${
-          theme === 'dark' ? 'sun' : 'moon'
-        }-button-switch rounded-1 d-flex justify-content-center align-items-center p-2 position-relative`}
+        className={`theme-toggler rounded-1 d-flex justify-content-center align-items-center p-2 position-relative`}
         onClick={() => switchTheme()}
         style={{
           width: '40px',
