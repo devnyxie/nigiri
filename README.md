@@ -1,6 +1,32 @@
-📸 [Screenshots](https://imgur.com/a/hpx1zx2)
+# Nigiri Template 🍣
 
-# Nigiri Next.js Blog Template Documentation
+[Demo](https://nigiri.vercel.app/)
+[Screenshots](https://imgur.com/a/hpx1zx2)
+
+<div align="center">
+  <br/>
+    <img src="https://i.imgur.com/HrYMHGK.png" width="1000"/>
+  <br/>
+</div>
+
+<!-- toc -->
+
+- [Template Documentation](#template-documentation)
+  - [Introduction](#introduction)
+  - [Configuration Options (type, default)](#configuration-options-type-default)
+    - [1. Site Information](#1-site-information)
+    - [2. Profile](#2-profile)
+    - [3. About](#3-about)
+    - [3. Social Media](#3-social-media)
+    - [4. Email Address](#4-email-address)
+    - [5. Buy Me a Coffee](#5-buy-me-a-coffee)
+    - [7. Other (UI)](#7-other-ui)
+  - [Example Configuration](#example-configuration)
+- [Getting Started Locally](#getting-started-locally)
+
+<!-- tocstop -->
+
+# Template Documentation
 
 ## Introduction
 
@@ -22,18 +48,17 @@ The Nigiri template allows you to create a personalized blog with ease. The conf
 
 ### 3. About
 
-- `about_me_paragraph`: (string) Paragraph about yourself.
+You can add here as many paragraphs as you want. For example:
+
+- `about_me_paragraph`: (string) Paragraph about your yourself.
 - `work_paragraph`: (string) Paragraph about your work.
 
-  You can add more paragraphs, simply add:
-
-```
-  "sectionName_paragraph": "text"
-```
+Keys will be used as headings, for example `about_me_paragraph` will become `About Me`.
 
 ### 3. Social Media
 
-Provide your usernames for various social media platforms to display links in the blog.
+Provide your usernames for various social media platforms.
+Icons are pre-downloaded for all platform below.
 
 - `github_username`: (string) GitHub username.
   `github_icon`: /platforms/github.svg
@@ -56,7 +81,7 @@ Provide your usernames for various social media platforms to display links in th
 You can add more platforms, simply:
 
 1. Put desired icon in `public/platforms` folder.
-2. Add your platform to the `configuration.yaml`:
+2. Add your platform and username to the `configuration.yaml` like so:
 
 ```
   "platformName_username": "john_doe",
@@ -75,7 +100,7 @@ Add a "Buy Me a Coffee" button that will be displayed in the header.
 
 - `buyMeACoffee_username`: (string) Your "Buy Me a Coffee" username. This will be displayed as an icon preceding the Theme Toggler.
 
-### 7. Other
+### 7. Other (UI)
 
 Configure the visual appearance of the blog & more
 
@@ -89,24 +114,32 @@ Configure the visual appearance of the blog & more
 ## Example Configuration
 
 ```yaml
-{
-  'site_title': 'My Blog',
-  'name': 'John',
-  'surname': 'Doe',
-  'professional_identity': 'Web Developer',
-  'github_username': 'johndoe',
-  'linkedIn_username': 'john-doe',
-  'instagram_username': 'john_doe_insta',
-  'tumblr_username': 'john-doe-tumblr',
-  'steam_username': 'john_doe_steam',
-  'twitter_username': 'johndoe_twitter',
-  'email_address': 'john.doe@example.com',
-  'buyMeACoffee_username': 'john_doe_coffee',
-  'about_me_paragraph': "I'm a passionate web developer...",
-  'work_paragraph': 'Currently working on exciting projects...',
-  'disable_animated_underline': false,
-  'blog_preview_date_format': 'full_date',
-}
+# configuration.yml
+site_title: 'Nigiri'
+site_description: 'Demo version of Nigiri Next.js Template'
+
+name: 'John'
+surname: 'Doe'
+professional_identity: 'Proffessional Magician'
+profile_picture: '/profile_picture/john_doe.jpg'
+about_me_paragraph: |
+
+  In eget imperdiet orci, convallis feugiat diam. Nam nec turpis tincidunt, diam ac, efficitur velit. In congue velit a nisi finibus, eget pulvinar lectus cursus. Duis risus ligula, eleifend rutrum velit ut, varius varius mauris.
+
+twitter_username: 'john_doe'
+
+email_address: 'john_doe@gmail.com'
+buyMeACoffee_username: 'john_doe'
+blog_preview_date_separators: '-'
+max_posts_per_page: '15'
 ```
 
 Feel free to customize the configuration to suit your preferences and style.
+
+# Getting Started Locally
+
+```bash
+  $ cd nigiri
+  $ npm i
+  $ npm run dev
+```
