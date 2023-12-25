@@ -59,7 +59,7 @@ function PaginatedItems({ itemsPerPage, posts, theme, config }) {
   return (
     <>
       <Items currentItems={currentItems} config={config} />
-      <Stack
+      {posts.length > config.max_posts_per_page ?  <Stack
         spacing={2}
         justifyContent="center"
         alignItems="center"
@@ -73,7 +73,8 @@ function PaginatedItems({ itemsPerPage, posts, theme, config }) {
           onChange={handlePageChange}
           color="primary"
         />
-      </Stack>
+      </Stack> : <></>}
+     
     </>
   );
 }
