@@ -57,6 +57,11 @@ export function capitalizeFirstChar(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+export function transformToHyphenatedString(inputString) {
+  // Convert the string to lowercase and replace spaces with hyphens
+  return inputString.toLowerCase().replace(/\s+/g, '-');
+}
+
 export function checkImageExists(url, callback) {
   var img = new Image();
   img.onload = function () {
