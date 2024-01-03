@@ -17,15 +17,6 @@ const globalStyles = (theme, config) => {
       transition: background-color 0.2s ease-in-out;
     }
 
-    pre {
-      color: black;
-      padding: 5px;
-      background-color: #fbcc84;
-      width: max-content;
-      line-height: 1.2;
-      border-radius: 0.25rem;
-    }
-
     main {
       font-synthesis: none;
       text-rendering: optimizeLegibility;
