@@ -108,6 +108,9 @@ Configure the visual appearance of the blog & more
 - `disable_animated_underline`: (boolean, false) Disables animated underline and replace it with a static underline on-hover.
 - `blog_preview_date_format`: (string, ISO_8601) Blog list item date format. Options: `ISO_8601` (2023-12-15) and `full_date` (December 15, 2023).
 - `blog_preview_date_separators`: (string, "-") Blog list item date separator. Works only for ISO_8601 date format. Defaults to "-" (2023-12-15).
+  Code Blocks:
+- `code_bg_color`: (string, "#f1e4c3") Background of a code block.
+- `code_text_color`: (string, "black") Text Color of a code block.
 
 ## Example Configuration
 
