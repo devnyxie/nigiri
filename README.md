@@ -3,16 +3,17 @@
 <!-- toc -->
 
 - [Template Documentation](#template-documentation)
-  - [Introduction](#introduction)
-  - [Configuration Options (type, default)](#configuration-options-type-default)
-    - [1. Site Information](#1-site-information)
-    - [2. Profile](#2-profile)
-    - [3. About](#3-about)
-    - [3. Social Media](#3-social-media)
-    - [4. Email Address](#4-email-address)
-    - [5. Buy Me a Coffee](#5-buy-me-a-coffee)
-    - [7. Other (UI)](#7-other-ui)
-  - [Example Configuration](#example-configuration)
+  * [Introduction](#introduction)
+  * [Configuration Options (type, default)](#configuration-options-type-default)
+    + [1. Site Information](#1-site-information)
+    + [2. Profile](#2-profile)
+    + [3. About](#3-about)
+    + [3. Social Media](#3-social-media)
+    + [4. Email Address](#4-email-address)
+    + [5. Buy Me a Coffee](#5-buy-me-a-coffee)
+    + [6. Sitemap](#6-sitemap)
+    + [7. Other (UI)](#7-other-ui)
+  * [Example Configuration](#example-configuration)
 - [Getting Started Locally](#getting-started-locally)
 - [Resources](#resources)
 - [Special Thanks](#special-thanks)
@@ -98,6 +99,16 @@ No need to worry if you don't have a specific icon; a generic one will be used i
 Add a "Buy Me a Coffee" button that will be displayed in the header.
 
 - `buyMeACoffee_username`: (string) Your "Buy Me a Coffee" username. This will be displayed as an icon preceding the Theme Toggler.
+
+### 6. Sitemap
+
+To generate a sitemap for your website, follow these steps:
+
+- Create an environment variable named SITE_URL with the value set to your website's URL.
+- Run npm build.
+- The sitemap.xml will be automatically generated as part of the build process.
+
+🔗 [Documentation](https://github.com/iamvishnusankar/next-sitemap)
 
 ### 7. Other (UI)
 
