@@ -89,26 +89,6 @@ const globalStyles = (theme, config) => {
     }
     /* custom underlined text (headings) --- end */
 
-    /* custom underlined text (headings) --- start */
-    .underlined_text {
-      position: relative;
-      display: inline-block;
-    }
-    .underlined_text .text {
-      position: relative;
-      display: inline-block;
-      overflow: visible;
-    }
-    .underlined_text .text::before {
-      content: '';
-      position: absolute;
-      bottom: -4.5px; /* Adjust the distance from the bottom */
-      width: 100%;
-      height: 3.5px; /* Adjust the thickness of the underline */
-      background-color: ${theme == 'light' ? '#222' : '#7e7e7e'};
-    }
-    /* custom underlined text (headings) --- end */
-
     /* custom underlined text (animated) --- start */
     .animated-link {
       position: relative;
