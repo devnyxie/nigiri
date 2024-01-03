@@ -1,48 +1,40 @@
 # Site settings:
-site_title: 'Nigiri'
-site_description: 'Demo version of Nigiri Next.js Template'
+site_title: 'devnyxie'
+site_description: |
+
+  Welcome to Tim's Corner of the Web, a personal haven for a Full Stack Developer. Join me in exploring the delightful realms of UNIX customization, web scraping adventures, and various other engaging open-source projects.
 
 # Profile:
-name: 'John'
-surname: 'Doe'
-professional_identity: 'Proffessional Magician'
-profile_picture: ''
+name: 'Tim'
+surname: 'Afanasiev'
+professional_identity: 'Full Stack Developer | Digital Craftsman'
+profile_picture: '/profile_picture/pfp.jpg'
 
 # "About me" page's paragraphs:
 about_me_paragraph: |
 
-  In eget imperdiet orci, convallis feugiat diam. Nam nec turpis tincidunt, diam ac, efficitur velit. In congue velit a nisi finibus, eget pulvinar lectus cursus. Duis risus ligula, eleifend rutrum velit ut, varius varius mauris. Duis sollicitudin diam ut fringilla cursus. Mauris efficitur, tortor ac pharetra aliquet, nunc eros interdum augue, ut velit velit ac urna.
-  eu arcu facilisis ligula rhoncus imperdiet ac eget turpis. Sed placerat porta orci quis volutpat.
+  I'm Tim, a multilingual individual fluent in Russian, Greek, English, and Polish. Although currently residing in Poland, I've spent the majority of my life in Greece. As a digital craftsman, both my work and hobby revolve around creating and continuous learning. Finding solace in this lifestyle, I have a penchant for romanticizing programming.
+
+work_paragraph: |
+
+  I am a Full Stack Developer at DemandSphere, where my role involves devops monitoring, design, web scraping and more. Proficient in both frontend and backend, I design user-friendly interfaces, implement features, optimize platform performance, and integrate external services. Furthermore, I conduct in-depth analyses using monitoring tools like Elastic, Grafana, Sentry, and RabbitMQ and address production incidents across time zones, ensuring seamless operations and uninterrupted service delivery.
 
 # Socials:
-github_username: 'test'
+github_username: 'devnyxie'
 github_icon: 'github.svg'
 
-linkedin_username: 'test'
+linkedin_username: 'talmkg'
 linkedin_icon: 'linkedin.svg'
 
-instagram_username: 'test'
-instagram_icon: 'instagram.svg'
-
-tumblr_username: 'test'
-tumblr_icon: 'tumblr.svg'
-
-steam_username: 'test'
-steam_icon: 'steam.svg'
-
-twitter_username: 'test'
-twitter_icon: 'twitter.svg'
-
 # Email btn
-email_address: 'test@gmail.com'
-
+email_address: 'timbusinez@gmail.com'
 # "Buy me a coffee" button:
 buyMeACoffee_username: 'devnyxie'
+# code highlighting
+code_bg_color: 'black'
+code_text_color: 'violet'
 
-# Other:
 profile_picture_border: true
 disable_about_me_page: false
 disable_animated_underline: false
-blog_preview_date_format: ''
-blog_preview_date_separators: '-'
-max_posts_per_page: '8'
+max_posts_per_page: '10'
