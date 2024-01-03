@@ -8,7 +8,6 @@ import { Global } from '@emotion/react';
 import globalStyles from '../public/globalStyles.styles.js';
 import { StyledEngineProvider } from '@mui/material/styles';
 import config from '../configuration.yaml';
-import '../public/prism_theme/prism-hopscotch.css';
 
 function App({ Component, pageProps, config_yml }) {
   const [theme, setTheme] = useState('dark');
