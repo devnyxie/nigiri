@@ -15,6 +15,7 @@
   - [Example Configuration](#example-configuration)
 - [Getting Started Locally](#getting-started-locally)
 - [Resources](#resources)
+- [Special Thanks](#special-thanks)
 
 <!-- tocstop -->
 
@@ -109,8 +110,8 @@ Configure the visual appearance of the blog & more
 - `blog_preview_date_format`: (string, ISO_8601) Blog list item date format. Options: `ISO_8601` (2023-12-15) and `full_date` (December 15, 2023).
 - `blog_preview_date_separators`: (string, "-") Blog list item date separator. Works only for ISO_8601 date format. Defaults to "-" (2023-12-15).
   Code Blocks:
-- `code_bg_color`: (string, "#f1e4c3") Background of a code block.
-- `code_text_color`: (string, "black") Text Color of a code block.
+- `code_bg_color`: (string, github light/dark colors) Background of a code block.
+- `code_text_color`: (string, github light/dark colors) Text Color of a code block.
 
 ## Example Configuration
 
@@ -118,7 +119,6 @@ Configure the visual appearance of the blog & more
 # configuration.yml
 site_title: 'Nigiri'
 site_description: 'Demo version of Nigiri Next.js Template'
-
 name: 'John'
 surname: 'Doe'
 professional_identity: 'Proffessional Magician'
@@ -128,7 +128,6 @@ about_me_paragraph: |
   In eget imperdiet orci, convallis feugiat diam. Nam nec turpis tincidunt, diam ac, efficitur velit. In congue velit a nisi finibus, eget pulvinar lectus cursus. Duis risus ligula, eleifend rutrum velit ut, varius varius mauris.
 
 twitter_username: 'john_doe'
-
 email_address: 'john_doe@gmail.com'
 buyMeACoffee_username: 'john_doe'
 blog_preview_date_separators: '-'
@@ -150,3 +149,9 @@ Feel free to customize the configuration to suit your preferences and style.
 [Demo](https://nigiri.vercel.app/)
 
 [Screenshots](https://imgur.com/a/hpx1zx2)
+
+# Special Thanks
+
+I want to say special thanks to:
+
+- [sindresorhus](https://github.com/sindresorhus) for providing me with [github-markdown-css](https://github.com/sindresorhus/github-markdown-css).
