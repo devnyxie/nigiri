@@ -1,6 +1,7 @@
 import Layout from '../components/layout/layout';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/styles.css';
+import './styles/github-markdown.css';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { getCookie, loadDefaults } from '../utils/utils';

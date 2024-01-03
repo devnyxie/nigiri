@@ -20,7 +20,10 @@ export default function Post({ post, morePosts, preview }) {
             <Head>
               <title>{title}</title>
             </Head>
-            <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
+            <div
+              className="markdown-body pb-5"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            ></div>
           </article>
         </>
       )}
