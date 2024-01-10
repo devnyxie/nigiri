@@ -22,6 +22,7 @@ const TOC = ({ articleContent }) => {
     <div className="toc">
       {headings.length > 1 ? (
         <>
+        <hr/>
           <ul style={{ listStyleType: 'square' }}>
             {headings.map((heading) => (
               <li
@@ -42,6 +43,7 @@ const TOC = ({ articleContent }) => {
               </li>
             ))}
           </ul>
+          <hr/>
         </>
       ) : (
         <></>

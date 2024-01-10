@@ -56,9 +56,7 @@ export default function Post({ post, morePosts, preview }) {
             <div className="pt-1 pb-1 opacity-75">
               {formatDateString(post.date, 'full_date')}
             </div>
-            <hr />
             <TOC articleContent={post.content} />
-            <hr />
             <div
               className="markdown-body pb-5"
               dangerouslySetInnerHTML={{ __html: post.content }}
