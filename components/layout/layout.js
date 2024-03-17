@@ -9,7 +9,7 @@ function Layout({ children, theme, setTheme, config }) {
   return (
     <>
       <ThemeProvider theme={create_mui_theme({ theme: theme })}>
-        <main className="">
+        <main>
           <div
             id="container"
             className="container h-100 d-flex flex-column"
