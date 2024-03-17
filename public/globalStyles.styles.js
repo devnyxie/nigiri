@@ -32,7 +32,6 @@ const globalStyles = (theme, config) => {
       -webkit-text-size-adjust: 100%;
       min-height: 100vh;
       height: max-content;
-      width: 100vw;
     }
 
     .pfp {
