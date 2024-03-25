@@ -6,8 +6,51 @@ import Head from 'next/head.js';
 import { useEffect } from 'react';
 import TOC from '../../components/TOC/TOC.js';
 import { formatDateString } from '../../utils/utils.js';
+import Prism from 'prismjs';
+
+// Top Languages
+require('prismjs/components/prism-markup');
+require('prismjs/components/prism-css');
+require('prismjs/components/prism-clike');
+require('prismjs/components/prism-javascript');
+require('prismjs/components/prism-c');
+require('prismjs/components/prism-cpp');
+require('prismjs/components/prism-java');
+require('prismjs/components/prism-python');
+require('prismjs/components/prism-php');
+require('prismjs/components/prism-ruby');
+require('prismjs/components/prism-swift');
+require('prismjs/components/prism-go');
+require('prismjs/components/prism-rust');
+require('prismjs/components/prism-typescript');
+require('prismjs/components/prism-shell-session');
+require('prismjs/components/prism-bash');
+require('prismjs/components/prism-powershell');
+require('prismjs/components/prism-sql');
+require('prismjs/components/prism-scala');
+require('prismjs/components/prism-perl');
+require('prismjs/components/prism-haskell');
+require('prismjs/components/prism-lua');
+require('prismjs/components/prism-matlab');
+require('prismjs/components/prism-csharp');
+require('prismjs/components/prism-objectivec');
+require('prismjs/components/prism-elixir');
+require('prismjs/components/prism-erlang');
+require('prismjs/components/prism-dart');
+require('prismjs/components/prism-kotlin');
+require('prismjs/components/prism-lisp');
+require('prismjs/components/prism-scheme');
+require('prismjs/components/prism-markup-templating');
+require('prismjs/components/prism-yaml');
+
+// Theme
+require('prismjs/themes/prism-tomorrow.min.css');
 
 export default function Post({ post, morePosts, preview }) {
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
+
   const router = useRouter();
   const title = `${post.title}`;
   if (!router.isFallback && !post?.slug) {
@@ -58,9 +101,10 @@ export default function Post({ post, morePosts, preview }) {
             </div>
             <TOC articleContent={post.content} />
             <div
-              className="markdown-body pb-5"
+              // className="markdown-body pb-5"
               dangerouslySetInnerHTML={{ __html: post.content }}
             ></div>
+            {/* <ReactMarkdown children={post.content} /> */}
           </article>
         </>
       )}
