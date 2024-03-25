@@ -2,6 +2,18 @@ import { css } from '@emotion/react';
 
 const globalStyles = (theme, config) => {
   return css`
+    pre *,
+    code * {
+      color: #ccc;
+    }
+
+    pre {
+      color: ${config.code_text_color ? config.code_text_color : ''} !important;
+      background-color: ${config.code_bg_color
+        ? config.code_bg_color
+        : ''} !important;
+    }
+
     * {
       scroll-behavior: smooth;
       color: ${theme == 'light' ? '#222' : '#ccc'};
@@ -15,13 +27,6 @@ const globalStyles = (theme, config) => {
     body {
       background-color: ${theme == 'light' ? 'white' : '#101010'} !important;
       transition: background-color 0.2s ease-in-out;
-    }
-
-    pre {
-      color: ${config.code_text_color ? config.code_text_color : ''} !important;
-      background-color: ${config.code_bg_color
-        ? config.code_bg_color
-        : ''} !important;
     }
 
     main {

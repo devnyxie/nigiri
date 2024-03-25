@@ -1,7 +1,6 @@
 import Layout from '../components/layout/layout';
 import 'bootstrap/dist/css/bootstrap.css';
-import './styles/styles.css';
-import './styles/github-markdown.css';
+import '../styles/styles.css';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { getCookie, loadDefaults } from '../utils/utils';
@@ -9,6 +8,7 @@ import { Global } from '@emotion/react';
 import globalStyles from '../public/globalStyles.styles.js';
 import { StyledEngineProvider } from '@mui/material/styles';
 import config from '../configuration.yaml';
+import '../styles/github-markdown.css';
 
 function App({ Component, pageProps, config_yml }) {
   const [theme, setTheme] = useState('dark');

@@ -3,17 +3,17 @@
 <!-- toc -->
 
 - [Template Documentation](#template-documentation)
-  * [Introduction](#introduction)
-  * [Configuration Options (type, default)](#configuration-options-type-default)
-    + [1. Site Information](#1-site-information)
-    + [2. Profile](#2-profile)
-    + [3. About](#3-about)
-    + [3. Social Media](#3-social-media)
-    + [4. Email Address](#4-email-address)
-    + [5. Buy Me a Coffee](#5-buy-me-a-coffee)
-    + [6. Sitemap](#6-sitemap)
-    + [7. Other (UI)](#7-other-ui)
-  * [Example Configuration](#example-configuration)
+  - [Introduction](#introduction)
+  - [Configuration Options (type, default)](#configuration-options-type-default)
+    - [1. Site Information](#1-site-information)
+    - [2. Profile](#2-profile)
+    - [3. About](#3-about)
+    - [3. Social Media](#3-social-media)
+    - [4. Email Address](#4-email-address)
+    - [5. Buy Me a Coffee](#5-buy-me-a-coffee)
+    - [6. Sitemap](#6-sitemap)
+    - [7. Other (UI)](#7-other-ui)
+  - [Example Configuration](#example-configuration)
 - [Getting Started Locally](#getting-started-locally)
 - [Resources](#resources)
 - [Special Thanks](#special-thanks)
@@ -120,9 +120,6 @@ Configure the visual appearance of the blog & more
 - `disable_animated_underline`: (boolean, false) Disables animated underline and replace it with a static underline on-hover.
 - `blog_preview_date_format`: (string, ISO_8601) Blog list item date format. Options: `ISO_8601` (2023-12-15) and `full_date` (December 15, 2023).
 - `blog_preview_date_separators`: (string, "-") Blog list item date separator. Works only for ISO_8601 date format. Defaults to "-" (2023-12-15).
-  Code Blocks:
-- `code_bg_color`: (string, github light/dark colors) Background of a code block.
-- `code_text_color`: (string, github light/dark colors) Text Color of a code block.
 
 ## Example Configuration
 
