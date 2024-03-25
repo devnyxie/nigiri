@@ -6,6 +6,7 @@ import Head from 'next/head.js';
 import { useEffect } from 'react';
 import TOC from '../../components/TOC/TOC.js';
 import { formatDateString } from '../../utils/utils.js';
+
 import Prism from 'prismjs';
 
 // Top Languages
@@ -45,12 +46,12 @@ require('prismjs/components/prism-yaml');
 
 // Theme
 require('prismjs/themes/prism-tomorrow.min.css');
+//
 
 export default function Post({ post, morePosts, preview }) {
   useEffect(() => {
     Prism.highlightAll();
   }, []);
-
   const router = useRouter();
   const title = `${post.title}`;
   if (!router.isFallback && !post?.slug) {
@@ -101,7 +102,7 @@ export default function Post({ post, morePosts, preview }) {
             </div>
             <TOC articleContent={post.content} />
             <div
-              // className="markdown-body pb-5"
+              className="markdown-body pb-5"
               dangerouslySetInnerHTML={{ __html: post.content }}
             ></div>
             {/* <ReactMarkdown children={post.content} /> */}

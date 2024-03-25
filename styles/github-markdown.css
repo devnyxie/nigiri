@@ -353,7 +353,7 @@
   margin-bottom: 0;
   font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
     Liberation Mono, monospace;
-  font-size: 12px;
+  font-size: 14px !important;
   word-wrap: normal;
 }
 
