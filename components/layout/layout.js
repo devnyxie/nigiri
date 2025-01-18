@@ -19,7 +19,7 @@ function Layout({ children, theme, setTheme, config }) {
             <div id="content" className="w-100 h-100">
               {children}
             </div>
-            {/* <Footer /> */}
+            <Footer />
           </div>
         </main>
       </ThemeProvider>

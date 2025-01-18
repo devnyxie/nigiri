@@ -50,6 +50,12 @@ function App({ Component, pageProps, config_yml }) {
             href="/favicon/safari-pinned-tab.svg"
             color="#5bbad5"
           />
+          <link 
+            rel="alternate" 
+            type="application/rss+xml" 
+            title={`RSS Feed for ${config.name}'s Blog`}
+            href="/api/feed.xml" 
+          />
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
         </Head>
