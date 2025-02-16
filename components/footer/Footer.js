@@ -9,7 +9,7 @@ function Footer() {
         <Link
           href="/api/feed.xml"
           target="_blank"
-          className="bg-white p-2 rounded-2 me-2 animated-link"
+          className="p-2 rounded-2 me-2 animated-link"
         >
           <div className='text'>RSS</div>
         </Link>
