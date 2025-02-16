@@ -4,21 +4,14 @@ import React from 'react';
 
 function Footer() {
   return (
-    <div className="footer mt-auto p-2">
-      <div className="d-flex">
+    <div className="footer small mt-auto p-2">
+      <div className="d-flex justify-content-center">
         <Link
-          href="https://github.com/devnyxie"
+          href="/api/feed.xml"
           target="_blank"
-          className="bg-white p-2 rounded-2 me-2"
+          className="bg-white p-2 rounded-2 me-2 animated-link"
         >
-          <Image src="./github_rounded.svg" width={25} height={25} />
-        </Link>
-        <Link
-          href="https://www.linkedin.com/in/talmkg/"
-          target="_blank"
-          className="bg-white p-2 rounded-2"
-        >
-          <Image src="./linkedin.svg" width={25} height={25} />
+          <div className='text'>RSS</div>
         </Link>
       </div>
     </div>
