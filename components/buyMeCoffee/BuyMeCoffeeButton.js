@@ -1,8 +1,7 @@
-import { Tooltip } from '@mui/material';
-import React from 'react';
+import { memo } from 'react';
 import MuiTooltip from '../tooltip/muiTooltip';
 
-function BuyMeCoffeeButton({ username }) {
+const BuyMeCoffeeButton = memo(function BuyMeCoffeeButton({ username }) {
   return (
     <MuiTooltip text="Buy me a coffee">
       <div className="d-flex justify-content-center">
@@ -17,6 +16,6 @@ function BuyMeCoffeeButton({ username }) {
       </div>
     </MuiTooltip>
   );
-}
+});
 
 export default BuyMeCoffeeButton;

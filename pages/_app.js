@@ -1,33 +1,30 @@
 import Layout from '../components/layout/layout';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/styles.css';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Head from 'next/head';
-import { getCookie, loadDefaults } from '../utils/utils';
 import { Global } from '@emotion/react';
 import globalStyles from '../public/globalStyles.styles.js';
 import { StyledEngineProvider } from '@mui/material/styles';
+import { ThemeProvider } from 'next-themes';
 import config from '../configuration.yaml';
 import '../styles/github-markdown.css';
 import { Analytics } from "@vercel/analytics/react";
 
-function App({ Component, pageProps, config_yml }) {
-  const [theme, setTheme] = useState('dark');
+function App({ Component, pageProps }) {
   useEffect(() => {
-    require('bootstrap/dist/js/bootstrap.bundle.min.js');
-    const cookie_theme = getCookie('theme');
-    if (cookie_theme) {
-      setTheme(cookie_theme);
-    }
+    // Dynamically import Bootstrap JS only on client
+    import('bootstrap/dist/js/bootstrap.bundle.min.js');
   }, []);
 
   return (
     <>
       <Analytics/>
-      <StyledEngineProvider injectFirst>
-        <Global styles={() => globalStyles(theme, config)} />
+    <StyledEngineProvider injectFirst>
+      <Global styles={globalStyles(config)} />
+      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
         <Head>
-          <title>{config.site_title ? config.site_title : config.name}</title>
+          <title>{config.site_title || config.name}</title>
           <meta name="description" content={config.site_description} />
           <link
             rel="apple-touch-icon"
@@ -61,11 +58,12 @@ function App({ Component, pageProps, config_yml }) {
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
         </Head>
-        <Layout theme={theme} setTheme={setTheme} config={config}>
-          <Component {...pageProps} theme={theme} config={config} />
+        <Layout config={config}>
+          <Component {...pageProps} config={config} />
         </Layout>
-      </StyledEngineProvider>
-    </>
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 }
+
 export default App;

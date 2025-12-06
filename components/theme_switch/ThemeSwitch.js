@@ -1,38 +1,42 @@
-import { Tooltip, Zoom } from '@mui/material';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import { useState, memo, useCallback, useRef } from 'react';
+import { useTheme } from 'next-themes';
 import MuiTooltip from '../tooltip/muiTooltip';
-import { setCookie } from '../../utils/utils';
 
-function ThemeSwitch({ theme, setTheme }) {
-  const moon = <Image src="/theme_switch/moon.svg" width={25} height={25} />;
-  const sun = <Image src="/theme_switch/sun.svg" width={25} height={25} />;
+const ThemeSwitch = memo(function ThemeSwitch() {
+  const { theme, setTheme } = useTheme();
   const [circleClass, setCircleClass] = useState('');
-  let switching = false;
-  function switchTheme() {
+  const switchingRef = useRef(false);
+
+  const switchTheme = useCallback(() => {
+    if (switchingRef.current) return;
+    
     try {
-      if (!switching) {
-        switching = true;
-        const desired_theme = theme === 'dark' ? 'light' : 'dark';
-        setTheme(desired_theme);
-        setCircleClass('theme-switcher-circle-off');
-        const timeout1 = setTimeout(() => {
-          setCircleClass('');
-          setCircleClass('theme-switcher-circle-on');
-        }, 200);
-        setCookie('theme', desired_theme);
-        switching = false;
-        return () => clearTimeout(timeout1);
-      }
+      switchingRef.current = true;
+      const desired_theme = theme === 'dark' ? 'light' : 'dark';
+      setTheme(desired_theme);
+      setCircleClass('theme-switcher-circle-off');
+      
+      const timeout1 = setTimeout(() => {
+        setCircleClass('theme-switcher-circle-on');
+        switchingRef.current = false;
+      }, 200);
+      
+      return () => clearTimeout(timeout1);
     } catch (error) {
-      //
+      switchingRef.current = false;
     }
-  }
+  }, [theme, setTheme]);
+
+  const icon = theme === 'dark' 
+    ? <Image src="/theme_switch/sun.svg" width={25} height={25} alt="Light mode" />
+    : <Image src="/theme_switch/moon.svg" width={25} height={25} alt="Dark mode" />;
+
   return (
     <MuiTooltip text="Toggle theme">
       <div
         className={`theme-toggler rounded-1 d-flex justify-content-center align-items-center p-2 position-relative`}
-        onClick={() => switchTheme()}
+        onClick={switchTheme}
         style={{
           width: '40px',
           height: '40px',
@@ -59,13 +63,13 @@ function ThemeSwitch({ theme, setTheme }) {
                 transform: 'translate(-50%, -50%)',
               }}
             >
-              {theme === 'dark' ? sun : moon}
+              {icon}
             </div>
           </div>
         </div>
       </div>
     </MuiTooltip>
   );
-}
+});
 
 export default ThemeSwitch;
