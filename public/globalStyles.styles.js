@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-const globalStyles = (theme, config) => {
+const globalStyles = (config) => {
   return css`
     pre *,
     code * {
@@ -16,16 +16,42 @@ const globalStyles = (theme, config) => {
 
     * {
       scroll-behavior: smooth;
-      color: ${theme == 'light' ? '#222' : '#ccc'};
+      color: #ccc;
       font-family: 'JetBrains Mono', monospace;
     }
 
+    :root {
+      --text-color: #222;
+      --bg-color: white;
+      --border-color: #101010;
+      --underline-color: #222;
+      --link-hover-color: #666;
+      --theme-toggler-bg: rgb(32, 32, 32);
+      --theme-toggler-hover: rgb(64, 64, 64);
+      --social-badge-bg: transparent;
+    }
+
+    .dark {
+      --text-color: #ccc;
+      --bg-color: #101010;
+      --border-color: white;
+      --underline-color: #7e7e7e;
+      --link-hover-color: #999;
+      --theme-toggler-bg: #fbcc84;
+      --theme-toggler-hover: #d0aa64;
+      --social-badge-bg: white;
+    }
+
+    * {
+      color: var(--text-color);
+    }
+
     .force-font * {
-      color: ${theme == 'light' ? '#222' : '#ccc'} !important;
+      color: var(--text-color) !important;
     }
 
     body {
-      background-color: ${theme == 'light' ? 'white' : '#101010'} !important;
+      background-color: var(--bg-color) !important;
       transition: background-color 0.2s ease-in-out;
     }
 
@@ -45,7 +71,7 @@ const globalStyles = (theme, config) => {
       aspect-ratio: 1/1;
       border-radius: 100%;
       border: ${config.profile_picture_border
-        ? `2px solid ${theme == 'light' ? '#101010' : 'white'}`
+        ? `2px solid var(--border-color)`
         : 'none'};
     }
 
@@ -89,7 +115,7 @@ const globalStyles = (theme, config) => {
       bottom: -4.5px; /* Adjust the distance from the bottom */
       width: 100%;
       height: 3.5px; /* Adjust the thickness of the underline */
-      background-color: ${theme == 'light' ? '#222' : '#7e7e7e'};
+      background-color: var(--underline-color);
     }
     /* custom underlined text (headings) --- end */
 
@@ -112,7 +138,7 @@ const globalStyles = (theme, config) => {
       left: 0;
       width: 0;
       height: 2px; /* Adjust the thickness of the underline */
-      background-color: ${theme === 'dark' ? 'white' : 'black'};
+      background-color: var(--border-color);
       ${config.disable_animated_underline
         ? ''
         : 'transition: width 0.25s ease;'}// transition: width 0.25s ease; /* Adjust the animation duration and timing function */
@@ -123,7 +149,7 @@ const globalStyles = (theme, config) => {
     }
     .animated-link:hover * {
       transition: 0.2s;
-      color: ${theme === 'dark' ? '#999' : '#666'} !important;
+      color: var(--link-hover-color) !important;
     }
 
     .animated-link .text .active::before {
@@ -132,7 +158,7 @@ const globalStyles = (theme, config) => {
       bottom: 0;
       width: 100%;
       height: 2px;
-      background-color: ${theme === 'dark' ? 'white' : 'black'};
+      background-color: var(--border-color);
     }
 
     /* custom underlined text (animated) --- end */
@@ -140,84 +166,83 @@ const globalStyles = (theme, config) => {
     /* social badges --- start*/
     .social-badge {
       aspect-ratio: 1/1;
-      background-color: ${theme === 'dark' ? 'white' : ''};
+      background-color: var(--social-badge-bg);
     }
     /*pagination*/
     .MuiPagination-root .Mui-selected {
-      color: ${theme == 'light' ? '' : 'black'} !important;
+      color: black !important;
+    }
+    .dark .MuiPagination-root .Mui-selected {
+      color: black !important;
     }
     /*theme*/
     .theme-toggler {
-      background-color: ${theme === 'light' ? 'rgb(32, 32, 32)' : '#fbcc84'};
+      background-color: var(--theme-toggler-bg);
       transition: 0.2s;
     }
     .theme-toggler:hover {
-      background-color: ${theme === 'light' ? 'rgb(64, 64, 64)' : '#d0aa64'};
+      background-color: var(--theme-toggler-hover);
       transition: 0.2s;
     }
 
     /*GITHUB MARKDOWN STYLING*/
-    ${theme === 'light'
-      ? `
-
-      .markdown-body,
-      [data-theme='light'] {
-        /*light*/
-        color-scheme: light;
-        --color-prettylights-syntax-comment: #57606a;
-        --color-prettylights-syntax-constant: #0550ae;
-        --color-prettylights-syntax-entity: #6639ba;
-        --color-prettylights-syntax-storage-modifier-import: #24292f;
-        --color-prettylights-syntax-entity-tag: #116329;
-        --color-prettylights-syntax-keyword: #cf222e;
-        --color-prettylights-syntax-string: #0a3069;
-        --color-prettylights-syntax-variable: #953800;
-        --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;
-        --color-prettylights-syntax-invalid-illegal-text: #f6f8fa;
-        --color-prettylights-syntax-invalid-illegal-bg: #82071e;
-        --color-prettylights-syntax-carriage-return-text: #f6f8fa;
-        --color-prettylights-syntax-carriage-return-bg: #cf222e;
-        --color-prettylights-syntax-string-regexp: #116329;
-        --color-prettylights-syntax-markup-list: #3b2300;
-        --color-prettylights-syntax-markup-heading: #0550ae;
-        --color-prettylights-syntax-markup-italic: #24292f;
-        --color-prettylights-syntax-markup-bold: #24292f;
-        --color-prettylights-syntax-markup-deleted-text: #82071e;
-        --color-prettylights-syntax-markup-deleted-bg: #ffebe9;
-        --color-prettylights-syntax-markup-inserted-text: #116329;
-        --color-prettylights-syntax-markup-inserted-bg: #dafbe1;
-        --color-prettylights-syntax-markup-changed-text: #953800;
-        --color-prettylights-syntax-markup-changed-bg: #ffd8b5;
-        --color-prettylights-syntax-markup-ignored-text: #eaeef2;
-        --color-prettylights-syntax-markup-ignored-bg: #0550ae;
-        --color-prettylights-syntax-meta-diff-range: #8250df;
-        --color-prettylights-syntax-brackethighlighter-angle: #57606a;
-        --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;
-        --color-prettylights-syntax-constant-other-reference-link: #0a3069;
-        --color-fg-default: #1f2328;
-        --color-fg-muted: #656d76;
-        --color-fg-subtle: #6e7781;
-        --color-canvas-default: #ffffff;
-        --color-canvas-subtle: #f6f8fa;
-        --color-border-default: #d0d7de;
-        --color-border-muted: hsla(210, 18%, 87%, 1);
-        --color-neutral-muted: rgba(175, 184, 193, 0.2);
-        --color-accent-fg: #0969da;
-        --color-accent-emphasis: #0969da;
-        --color-success-fg: #1a7f37;
-        --color-success-emphasis: #1f883d;
-        --color-attention-fg: #9a6700;
-        --color-attention-emphasis: #9a6700;
-        --color-attention-subtle: #fff8c5;
-        --color-danger-fg: #d1242f;
-        --color-danger-emphasis: #cf222e;
-        --color-done-fg: #8250df;
-        --color-done-emphasis: #8250df;
-      }
-    `
-      : `
     .markdown-body,
-    [data-theme='dark'] {
+    [data-theme='light'] {
+      /*light*/
+      color-scheme: light;
+      --color-prettylights-syntax-comment: #57606a;
+      --color-prettylights-syntax-constant: #0550ae;
+      --color-prettylights-syntax-entity: #6639ba;
+      --color-prettylights-syntax-storage-modifier-import: #24292f;
+      --color-prettylights-syntax-entity-tag: #116329;
+      --color-prettylights-syntax-keyword: #cf222e;
+      --color-prettylights-syntax-string: #0a3069;
+      --color-prettylights-syntax-variable: #953800;
+      --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;
+      --color-prettylights-syntax-invalid-illegal-text: #f6f8fa;
+      --color-prettylights-syntax-invalid-illegal-bg: #82071e;
+      --color-prettylights-syntax-carriage-return-text: #f6f8fa;
+      --color-prettylights-syntax-carriage-return-bg: #cf222e;
+      --color-prettylights-syntax-string-regexp: #116329;
+      --color-prettylights-syntax-markup-list: #3b2300;
+      --color-prettylights-syntax-markup-heading: #0550ae;
+      --color-prettylights-syntax-markup-italic: #24292f;
+      --color-prettylights-syntax-markup-bold: #24292f;
+      --color-prettylights-syntax-markup-deleted-text: #82071e;
+      --color-prettylights-syntax-markup-deleted-bg: #ffebe9;
+      --color-prettylights-syntax-markup-inserted-text: #116329;
+      --color-prettylights-syntax-markup-inserted-bg: #dafbe1;
+      --color-prettylights-syntax-markup-changed-text: #953800;
+      --color-prettylights-syntax-markup-changed-bg: #ffd8b5;
+      --color-prettylights-syntax-markup-ignored-text: #eaeef2;
+      --color-prettylights-syntax-markup-ignored-bg: #0550ae;
+      --color-prettylights-syntax-meta-diff-range: #8250df;
+      --color-prettylights-syntax-brackethighlighter-angle: #57606a;
+      --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;
+      --color-prettylights-syntax-constant-other-reference-link: #0a3069;
+      --color-fg-default: #1f2328;
+      --color-fg-muted: #656d76;
+      --color-fg-subtle: #6e7781;
+      --color-canvas-default: #ffffff;
+      --color-canvas-subtle: #f6f8fa;
+      --color-border-default: #d0d7de;
+      --color-border-muted: hsla(210, 18%, 87%, 1);
+      --color-neutral-muted: rgba(175, 184, 193, 0.2);
+      --color-accent-fg: #0969da;
+      --color-accent-emphasis: #0969da;
+      --color-success-fg: #1a7f37;
+      --color-success-emphasis: #1f883d;
+      --color-attention-fg: #9a6700;
+      --color-attention-emphasis: #9a6700;
+      --color-attention-subtle: #fff8c5;
+      --color-danger-fg: #d1242f;
+      --color-danger-emphasis: #cf222e;
+      --color-done-fg: #8250df;
+      --color-done-emphasis: #8250df;
+    }
+
+    .dark .markdown-body,
+    .dark [data-theme='dark'] {
       /*dark*/
       color-scheme: dark;
       --color-prettylights-syntax-comment: #8b949e;
@@ -270,7 +295,7 @@ const globalStyles = (theme, config) => {
       --color-done-fg: #a371f7;
       --color-done-emphasis: #8957e5;
     }
-    `}/* --- --- --- */
+    /* --- --- --- */
   `;
 };
 

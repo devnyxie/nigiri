@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import React from 'react';
+import { memo } from 'react';
 
-const AnimatedLink = ({ href, className, children, as }) => {
+const AnimatedLink = memo(function AnimatedLink({ href, className, children, as }) {
   return (
     <div className={`animated-link ${className ? className : ''}`}>
       <Link as={as} href={href} className="text d-flex">
@@ -9,6 +9,6 @@ const AnimatedLink = ({ href, className, children, as }) => {
       </Link>
     </div>
   );
-};
+});
 
 export default AnimatedLink;

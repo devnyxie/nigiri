@@ -1,8 +1,7 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import { memo } from 'react';
 
-function Footer() {
+const Footer = memo(function Footer() {
   return (
     <div className="footer small mt-auto p-2">
       <div className="d-flex justify-content-center">
@@ -16,6 +15,6 @@ function Footer() {
       </div>
     </div>
   );
-}
+});
 
 export default Footer;
