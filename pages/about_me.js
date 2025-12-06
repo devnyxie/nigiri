@@ -1,25 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { ProfilePicture, capitalizeText, findKeys } from '../utils/utils';
+import React from 'react';
+import { ProfilePicture, capitalizeText } from '../utils/utils';
 import markdownToHtml from '../lib/markdownToHtml';
 
-function about_me({ config }) {
-  const [paragraphs, setParagraphs] = useState([]);
-  useEffect(() => {
-    let new_paragraphs = [];
-    for (let key in config) {
-      if (config.hasOwnProperty(key)) {
-        const value = config[key];
-        if (key.includes('_paragraph') && value.trim() !== '') {
-          const cleanedKey = key.replace('_paragraph', '');
-          new_paragraphs.push({
-            paragraph_title: cleanedKey,
-            paragraph_text: value,
-          });
-        }
-      }
-    }
-    setParagraphs(new_paragraphs);
-  }, []);
+function about_me({ config, paragraphs }) {
 
   return (
     <div className="w-100 fade-in">
@@ -27,11 +10,9 @@ function about_me({ config }) {
         <ProfilePicture config={config} size={250} className="pfp mb-4" />
       </div>
       {paragraphs.map((paragraph, index) => {
-        let markdown = markdownToHtml(paragraph.paragraph_text);
-
-        if (markdown) {
+        if (paragraph.html) {
           return (
-            <div id={paragraph.paragraph_title} className="mb-4">
+            <div key={index} id={paragraph.paragraph_title} className="mb-4">
               <h4 className="underlined_text">
                 <div className="text">
                   {capitalizeText(paragraph.paragraph_title)}
@@ -41,7 +22,7 @@ function about_me({ config }) {
                 <div
                   className="ps-2"
                   dangerouslySetInnerHTML={{
-                    __html: markdown,
+                    __html: paragraph.html,
                   }}
                 ></div>
               </div>
@@ -51,6 +32,29 @@ function about_me({ config }) {
       })}
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const config = (await import('../configuration.yaml')).default;
+  
+  const paragraphs = [];
+  for (let key in config) {
+    if (config.hasOwnProperty(key)) {
+      const value = config[key];
+      if (key.includes('_paragraph') && value.trim() !== '') {
+        const cleanedKey = key.replace('_paragraph', '');
+        const html = await markdownToHtml(value);
+        paragraphs.push({
+          paragraph_title: cleanedKey,
+          html: html,
+        });
+      }
+    }
+  }
+
+  return {
+    props: { paragraphs },
+  };
 }
 
 export default about_me;

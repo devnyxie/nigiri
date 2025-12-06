@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, memo, useMemo, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -6,12 +6,13 @@ import AnimatedLink from '../AnimatedLink';
 import { IoIosMenu } from 'react-icons/io';
 import ThemeSwitch from '../theme_switch/ThemeSwitch';
 import BuyMeCoffeeButton from '../buyMeCoffee/BuyMeCoffeeButton';
-import { Button, IconButton } from '@mui/material';
-function Header({ theme, setTheme, config }) {
+import { IconButton } from '@mui/material';
+
+const Header = memo(function Header({ theme, setTheme, config }) {
   const router = useRouter();
   const [currentRoute, setCurrentRoute] = useState('/');
 
-  function returnRouteName(route) {
+  const returnRouteName = useCallback((route) => {
     switch (route) {
       case 'index':
         return 'Blog';
@@ -20,23 +21,27 @@ function Header({ theme, setTheme, config }) {
       default:
         return '';
     }
-  }
+  }, []);
 
-  function associatedRoutes(tab) {
-    let associated_routes = [];
-    associated_routes.push(tab.href);
-    switch (tab.as) {
-      case 'index':
-        associated_routes.push('/posts/[post]');
-        break;
-      default:
-        break;
+  const associatedRoutes = useCallback((tab) => {
+    const associated_routes = [tab.href];
+    if (tab.as === 'index') {
+      associated_routes.push('/posts/[post]');
     }
     return associated_routes;
-  }
+  }, []);
+
+  const tabs = useMemo(() => {
+    if (config.disable_about_me_page) return [];
+    return [
+      { as: 'index', href: '/' },
+      { as: 'about_me', href: '/about_me' },
+    ];
+  }, [config.disable_about_me_page]);
+
   useEffect(() => {
     setCurrentRoute(router.pathname);
-  }, [router]);
+  }, [router.pathname]);
   return (
     <div className="p-2 w-100 rounded-1 d-flex align-items-center">
       <nav className="w-100 navbar navbar-expand-lg ">
@@ -69,41 +74,27 @@ function Header({ theme, setTheme, config }) {
             id="navbarSupportedContent"
           >
             <div className="navbar-nav me-auto">
-              {config.disable_about_me_page ? (
-                <></>
-              ) : (
-                [
-                  { as: 'index', href: '/' },
-                  { as: 'about_me', href: '/about_me' },
-                ]
-                  .filter((value) => value !== null && value !== undefined)
-                  .map((tab) => {
-                    return (
-                      <AnimatedLink
-                        key={tab.as}
-                        href={tab.href}
-                        className={`fw-bold header-links`}
-                      >
-                        <div
-                          className={`${
-                            associatedRoutes(tab).includes(currentRoute)
-                              ? 'active'
-                              : ''
-                          }`}
-                        >
-                          {' '}
-                          {returnRouteName(tab.as)}
-                        </div>
-                      </AnimatedLink>
-                    );
-                  })
-              )}
+              {tabs.map((tab) => (
+                <AnimatedLink
+                  key={tab.as}
+                  href={tab.href}
+                  className={`fw-bold header-links`}
+                >
+                  <div
+                    className={`${
+                      associatedRoutes(tab).includes(currentRoute)
+                        ? 'active'
+                        : ''
+                    }`}
+                  >
+                    {returnRouteName(tab.as)}
+                  </div>
+                </AnimatedLink>
+              ))}
             </div>
             <div className="d-flex" style={{ width: 'max-content' }}>
-              {config.buyMeACoffee_username ? (
+              {config.buyMeACoffee_username && (
                 <BuyMeCoffeeButton username={config.buyMeACoffee_username} />
-              ) : (
-                <></>
               )}
               <div className="ps-1">
                 <ThemeSwitch theme={theme} setTheme={setTheme} />
@@ -114,6 +105,6 @@ function Header({ theme, setTheme, config }) {
       </nav>
     </div>
   );
-}
+});
 
 export default Header;
