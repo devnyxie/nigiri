@@ -5,8 +5,8 @@ import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import create_mui_theme from '../mui_theme/theme';
 
-const Layout = memo(function Layout({ children, theme, setTheme, config }) {
-  const muiTheme = useMemo(() => create_mui_theme({ theme }), [theme]);
+const Layout = memo(function Layout({ children, config }) {
+  const muiTheme = useMemo(() => create_mui_theme({}), []);
   
   return (
     <ThemeProvider theme={muiTheme}>
@@ -16,7 +16,7 @@ const Layout = memo(function Layout({ children, theme, setTheme, config }) {
           className="container h-100 d-flex flex-column"
           style={{ minHeight: '100vh' }}
         >
-          <Header theme={theme} setTheme={setTheme} config={config} />
+          <Header config={config} />
           <div id="content" className="w-100 h-100">
             {children}
           </div>

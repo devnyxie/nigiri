@@ -8,9 +8,6 @@ import { useEffect } from 'react';
 import TOC from '../../components/TOC/TOC.js';
 import { formatDateString } from '../../utils/utils.js';
 
-// Prism is handled by rehype-prism at build time, no client-side imports needed
-import 'prismjs/themes/prism-tomorrow.min.css';
-
 export default function Post({ post, headings }) {
   const router = useRouter();
   const title = `${post.title}`;

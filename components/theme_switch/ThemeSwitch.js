@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import { useState, memo, useCallback, useRef } from 'react';
+import { useTheme } from 'next-themes';
 import MuiTooltip from '../tooltip/muiTooltip';
-import { setCookie } from '../../utils/utils';
 
-const ThemeSwitch = memo(function ThemeSwitch({ theme, setTheme }) {
+const ThemeSwitch = memo(function ThemeSwitch() {
+  const { theme, setTheme } = useTheme();
   const [circleClass, setCircleClass] = useState('');
   const switchingRef = useRef(false);
 
@@ -21,7 +22,6 @@ const ThemeSwitch = memo(function ThemeSwitch({ theme, setTheme }) {
         switchingRef.current = false;
       }, 200);
       
-      setCookie('theme', desired_theme);
       return () => clearTimeout(timeout1);
     } catch (error) {
       switchingRef.current = false;

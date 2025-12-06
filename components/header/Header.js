@@ -8,7 +8,7 @@ import ThemeSwitch from '../theme_switch/ThemeSwitch';
 import BuyMeCoffeeButton from '../buyMeCoffee/BuyMeCoffeeButton';
 import { IconButton } from '@mui/material';
 
-const Header = memo(function Header({ theme, setTheme, config }) {
+const Header = memo(function Header({ config }) {
   const router = useRouter();
   const [currentRoute, setCurrentRoute] = useState('/');
 
@@ -97,7 +97,7 @@ const Header = memo(function Header({ theme, setTheme, config }) {
                 <BuyMeCoffeeButton username={config.buyMeACoffee_username} />
               )}
               <div className="ps-1">
-                <ThemeSwitch theme={theme} setTheme={setTheme} />
+                <ThemeSwitch />
               </div>
             </div>
           </div>

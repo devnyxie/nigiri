@@ -12,7 +12,6 @@
   "dependencies": {
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
-    "@mapbox/rehype-prism": "^0.9.0",
     "@mui/material": "^6.1.9",
     "bootstrap": "^5.3.2",
     "feed": "^4.2.2",
@@ -21,13 +20,12 @@
     "js-yaml-loader": "^1.2.2",
     "next": "^15.1.0",
     "next-sitemap": "^4.2.3",
+    "next-themes": "^0.4.6",
     "npm": "^10.5.0",
-    "prismjs": "^1.29.0",
     "react": "^19",
     "react-dom": "^19",
     "react-icons": "^5.4.0",
     "react-markdown": "^9.0.1",
-    "rehype-highlight": "^7.0.0",
     "remark": "^15.0.1",
     "remark-breaks": "^4.0.0",
     "remark-gfm": "^4.0.0",
@@ -35,9 +33,12 @@
     "remark-parse": "^11.0.0"
   },
   "devDependencies": {
+    "@shikijs/rehype": "^3.19.0",
     "@types/bootstrap": "^5.2.10",
     "@types/node": "20.10.4",
     "@types/react": "18.2.43",
+    "rehype-stringify": "^10.0.1",
+    "remark-rehype": "^11.1.2",
     "typescript": "5.3.3"
   }
 }
